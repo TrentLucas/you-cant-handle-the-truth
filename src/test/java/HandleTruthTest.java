@@ -15,7 +15,7 @@ public class HandleTruthTest {
                 "hello there this is a sentence that does not end and this sentence never ends",
                 "yess iam a pirson",
                 "i'm a person that likes to sleep-in",
-                //"yes, i'm a person.",
+                "yes, i'm a person.",
         };
 
         TreeMap<Integer, HashSet> output1 = null;
@@ -40,9 +40,9 @@ public class HandleTruthTest {
         String[] output6String1 = {"i'm", "a", "person", "that", "likes", "to", "sleep-in"};
         output6.put(1, Arrays.stream(output6String1).collect(Collectors.toCollection(HashSet::new)));
 
-        /*TreeMap<Integer, HashSet> output6 = new TreeMap<>();
-        String[] c = {"yes", "i'm", "a", "person"};
-        output6.put(1, Arrays.stream(c).collect(Collectors.toCollection(HashSet::new)));*/
+        TreeMap<Integer, HashSet> output7 = new TreeMap<>();
+        String[] output7String1 = {"yes", "i'm", "a", "person"};
+        output7.put(1, Arrays.stream(output7String1).collect(Collectors.toCollection(HashSet::new)));
 
         TreeMap[] output = {
                 output1,
@@ -51,7 +51,7 @@ public class HandleTruthTest {
                 output4,
                 output5,
                 output6,
-                //output6,
+                output7,
         };
         for (int i = 0; i < input.length; i++) {
             TreeMap<Integer, Set<String>> expected = output[i];
@@ -61,10 +61,3 @@ public class HandleTruthTest {
 
     }
 }
-/*
-testcases: empty, 1 word, many words, same words but one with capital and one not, punctuation, misspelled words,
-- will need to change the code to accept a input so that testcases can be used
-- store each testcase in a string[] with expected outputs
-- call the function
-- compare the called function output to the string[]
- */
