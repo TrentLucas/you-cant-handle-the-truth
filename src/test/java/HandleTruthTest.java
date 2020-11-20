@@ -13,6 +13,9 @@ public class HandleTruthTest {
                 "",
                 "hello",
                 "hello there this is a sentence that does not end and this sentence never ends",
+                "yess iam a pirson",
+                "i'm a person that likes to sleep-in",
+                //"yes, i'm a person.",
         };
 
         TreeMap<Integer, HashSet> output1 = null;
@@ -24,17 +27,31 @@ public class HandleTruthTest {
         output3.put(1, Collections.singleton("hello"));
 
         TreeMap<Integer, HashSet> output4 = new TreeMap<>(Collections.reverseOrder());
-        String[] a = {"a", "that", "never", "not", "does", "and", "there", "ends", "is", "end", "hello"};
-        String[] b = {"sentence", "this"};
-        output4.put(2, Arrays.stream(b).collect(Collectors.toCollection(HashSet::new)));
-        output4.put(1, Arrays.stream(a).collect(Collectors.toCollection(HashSet::new)));
+        String[] output4String1 = {"a", "that", "never", "not", "does", "and", "there", "ends", "is", "end", "hello"};
+        String[] output4String2 = {"sentence", "this"};
+        output4.put(2, Arrays.stream(output4String2).collect(Collectors.toCollection(HashSet::new)));
+        output4.put(1, Arrays.stream(output4String1).collect(Collectors.toCollection(HashSet::new)));
 
+        TreeMap<Integer, HashSet> output5 = new TreeMap<>();
+        String[] output5String1 = {"yess", "iam", "a", "pirson"};
+        output5.put(1, Arrays.stream(output5String1).collect(Collectors.toCollection(HashSet::new)));
+
+        TreeMap<Integer, HashSet> output6 = new TreeMap<>();
+        String[] output6String1 = {"i'm", "a", "person", "that", "likes", "to", "sleep-in"};
+        output6.put(1, Arrays.stream(output6String1).collect(Collectors.toCollection(HashSet::new)));
+
+        /*TreeMap<Integer, HashSet> output6 = new TreeMap<>();
+        String[] c = {"yes", "i'm", "a", "person"};
+        output6.put(1, Arrays.stream(c).collect(Collectors.toCollection(HashSet::new)));*/
 
         TreeMap[] output = {
                 output1,
                 output2,
                 output3,
                 output4,
+                output5,
+                output6,
+                //output6,
         };
         for (int i = 0; i < input.length; i++) {
             TreeMap<Integer, Set<String>> expected = output[i];
