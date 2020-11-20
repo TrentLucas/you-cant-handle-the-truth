@@ -9,29 +9,32 @@ public class HandleTruthTest {
     @Test
     public void makeshiftTest() {
         String[] input = {
+                null,
                 "",
                 "hello",
                 "hello there this is a sentence that does not end and this sentence never ends",
-                "yes, i'm a person.",
-                "yess iam a pirson",
         };
-        TreeMap<Integer, Set<String>> output1 = new TreeMap<>();
-        output1.put(1, Collections.singleton(""));
+
+        TreeMap<Integer, HashSet> output1 = null;
 
         TreeMap<Integer, Set<String>> output2 = new TreeMap<>();
-        output2.put(1, Collections.singleton("hello"));
+        output2.put(1, Collections.singleton(""));
 
-        TreeMap<Integer, HashSet> output3 = new TreeMap<>(Collections.reverseOrder());
+        TreeMap<Integer, Set<String>> output3 = new TreeMap<>();
+        output3.put(1, Collections.singleton("hello"));
+
+        TreeMap<Integer, HashSet> output4 = new TreeMap<>(Collections.reverseOrder());
         String[] a = {"a", "that", "never", "not", "does", "and", "there", "ends", "is", "end", "hello"};
         String[] b = {"sentence", "this"};
-        output3.put(2, Arrays.stream(b).collect(Collectors.toCollection(HashSet::new)));
-        output3.put(1, Arrays.stream(a).collect(Collectors.toCollection(HashSet::new)));
+        output4.put(2, Arrays.stream(b).collect(Collectors.toCollection(HashSet::new)));
+        output4.put(1, Arrays.stream(a).collect(Collectors.toCollection(HashSet::new)));
 
 
         TreeMap[] output = {
                 output1,
                 output2,
                 output3,
+                output4,
         };
         for (int i = 0; i < input.length; i++) {
             TreeMap<Integer, Set<String>> expected = output[i];

@@ -3,6 +3,9 @@ import java.util.*;
 public class HandleTruth {
     public static TreeMap<Integer, Set<String>> wordCount(String sentence) {
         String msg = sentence;
+        if (msg == null) {
+            return null;
+        }
         // split the message into word set
         String[] words = msg.split(" ");
 
